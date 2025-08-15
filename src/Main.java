@@ -1,6 +1,9 @@
 import java17.Java17Person;
 import java8.Java8Person;
 
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -30,7 +33,7 @@ public class Main {
             System.out.println(s);
         }
 
-        Object [] objects = {"Java", 12, 3.15, true};
+        Object[] objects = {"Java", 12, 3.15, true};
         for (Object object : objects) {
             if (object instanceof String s) {
                 System.out.println(s.toUpperCase());
@@ -51,10 +54,17 @@ public class Main {
         int day = 3;
         String dayName;
         switch (day) {
-            case 1: dayName = "Monday"; break;
-            case 2: dayName = "Tuesday"; break;
-            case 3: dayName = "Wednesday"; break;
-            default: dayName = "Unknown";
+            case 1:
+                dayName = "Monday";
+                break;
+            case 2:
+                dayName = "Tuesday";
+                break;
+            case 3:
+                dayName = "Wednesday";
+                break;
+            default:
+                dayName = "Unknown";
         }
 
         System.out.println(dayName);
@@ -69,22 +79,49 @@ public class Main {
         System.out.println(daysName);
 
         String dayType = switch (day) {
-            case 1,2,3,4,5 -> "Weekday";
-            case 6,7 -> "Weekend";
+            case 1, 2, 3, 4, 5 -> "Weekday";
+            case 6, 7 -> "Weekend";
             default -> "Unknown";
         };
         System.out.println(dayType);
 
         String dayMessage = switch (day) {
-            case 1,2,3,4,5 -> {
+            case 1, 2, 3, 4, 5 -> {
                 System.out.println("Working day");
                 yield "Weekday";
             }
-            case 6,7 -> "Weekend";
+            case 6, 7 -> "Weekend";
             default -> "Unknown";
         };
         System.out.println(dayMessage);
 
+        // text blocks
+        // java 8 way
+        String html8 =
+                "<html>\n" +
+                "   <body>\n" +
+                "       <p>Hello Java 17!</p>\n" +
+                "   </body>\n" +
+                "</html>";
+
+        String html17 = """
+                <html>
+                    <body>
+                        <p>hello>
+                    </body>
+                </html>
+                """;
+
+        System.out.println(html8);
+        System.out.println(html17);
+
+        // var
+        // java 8 way
+        List<String> names = new ArrayList<>();
+        names.add("Lahiru");
+
+        var names2 = new ArrayList<String>();
+        names2.add("Lahiru");
 
     }
 }
