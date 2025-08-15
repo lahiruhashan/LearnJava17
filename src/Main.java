@@ -46,6 +46,45 @@ public class Main {
             }
         }
 
+        // switch
+        // java 8 way
+        int day = 3;
+        String dayName;
+        switch (day) {
+            case 1: dayName = "Monday"; break;
+            case 2: dayName = "Tuesday"; break;
+            case 3: dayName = "Wednesday"; break;
+            default: dayName = "Unknown";
+        }
+
+        System.out.println(dayName);
+
+        // java 17 way
+        String daysName = switch (day) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            default -> "Unknown";
+        };
+        System.out.println(daysName);
+
+        String dayType = switch (day) {
+            case 1,2,3,4,5 -> "Weekday";
+            case 6,7 -> "Weekend";
+            default -> "Unknown";
+        };
+        System.out.println(dayType);
+
+        String dayMessage = switch (day) {
+            case 1,2,3,4,5 -> {
+                System.out.println("Working day");
+                yield "Weekday";
+            }
+            case 6,7 -> "Weekend";
+            default -> "Unknown";
+        };
+        System.out.println(dayMessage);
+
 
     }
 }
