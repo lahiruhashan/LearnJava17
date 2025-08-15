@@ -17,6 +17,35 @@ public class Main {
         System.out.println("Are equal? " + (java17Person == java17Person2));
         System.out.println("Are equal? " + java17Person.equals(java17Person2));
 
+        // pattern matting for instanceof
+        Object obj = "Hello Java 17";
+        // java 8 way
+        if (obj instanceof String) {
+            String s = (String) obj;
+            System.out.println(s);
+        }
+
+        // java 17 way
+        if (obj instanceof String s) {
+            System.out.println(s);
+        }
+
+        Object [] objects = {"Java", 12, 3.15, true};
+        for (Object object : objects) {
+            if (object instanceof String s) {
+                System.out.println(s.toUpperCase());
+            }
+            if (object instanceof Integer i) {
+                System.out.println(i * 10);
+            }
+            if (object instanceof Double d) {
+                System.out.println(d * 100);
+            }
+            if (object instanceof Boolean b) {
+                System.out.println(b ? "Yes" : "No");
+            }
+        }
+
 
     }
 }
